@@ -1,2 +1,2 @@
-algo.github.com
+knaidu.github.com
 ===============
