@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>Algorithms in Ruby</title>
+  
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+  <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+</head>
+<body>
+	<div class="container">
+  	<h1 id="book-title">Algorithms in Ruby <span id="label-status">Beta Version</span></h1>
+<h2 id="book-subtitle">An Introduction to Data Structures and Algorithms with Ruby</h2>
+<h5 id="book-author">by Jason Kim</h5>
+<hr>
+
+<h2 id='copyright_and_license'>Copyright and License</h2>
+
+<p>Ruby Book on Algorithms: An Introduction to Data Structures and Algorithms. Copyright © 2013 by Jason Kim. All source code in Ruby Book on Algorithms is available under the MIT License.</p>
+
+<h3 id='what_does_this_mean'>What does this mean?</h3>
+
+<h4 id='code'>Code</h4>
+
+<p>Feel free to share the code in this book. You can build on it.</p>
+
+<h4 id='book'>Book</h4>
+
+<p>Feel free to share the book link with anyone. But don&#8217;t reproduce copies of the book in any other way. Please do not solicitate payment for this book or the book link.</p>
+
+<h3 id='got_a_question'>Got a question?</h3>
+
+<p>For any questions, concerns, bugs in codes, typos, etc, please email <a href='jason.kim@live.ca'>jason.kim@live.ca</a>.</p>
+<h2 id='table_of_contents'>Table of Contents</h2><ol>
+<li>
+<p><a href='/chapter/1-overview#1_overview'>Overview</a></p>
+</li>
+
+<li>
+<p><a href='/chapter/2-introduction-to-ruby#2_introduction_to_ruby'>Introduction to Ruby</a></p>
+</li>
+
+<li>
+<p><a href='/chapter/3-linked-lists#3_linked_lists'>Linked Lists</a></p>
+
+<ul>
+<li><a href='/chapter/3-linked-lists#implementing_singly_linked_list'>Singly Linked Lists</a></li>
+
+<li class='coming-soon'>Doubly Linked Lists</li>
+</ul>
+</li>
+
+<li class='coming-soon'>
+<p>Stacks</p>
+</li>
+
+<li class='coming-soon'>
+<p>Queues</p>
+</li>
+
+<li class='coming-soon'>
+<p>Hash Tables</p>
+</li>
+
+<li class='coming-soon'>
+<p>Trees</p>
+
+<ul class='coming-soon'>
+<li>Binary Search Tree</li>
+
+<li class='coming-soon'>AVL Tree</li>
+
+<li class='coming-soon'>B-Tree</li>
+</ul>
+</li>
+
+<li class='coming-soon'>
+<p>Heaps</p>
+</li>
+
+<li class='coming-soon'>
+<p>Sorts</p>
+</li>
+
+<li class='coming-soon'>
+<p>Searches</p>
+
+<ul>
+<li class='coming-soon'>Breath First Search</li>
+
+<li class='coming-soon'>Depth First Search</li>
+</ul>
+</li>
+
+<li class='coming-soon'>
+<p>Minimum Spanning Tree</p>
+</li>
+
+<li class='coming-soon'>
+<p>Dijkstra’s Algorithm &amp; Bellman-Ford Algorithm</p>
+</li>
+</ol><h5><a href='/chapter/all#1_overview'>View as Single Page</a></h5>
+<h2 id='1_overview'>1. Overview</h2>
+
+<h3 id='why_ruby'>Why Ruby?</h3>
+
+<p>There are hundres of programming languages out there. So why should you program in Ruby?</p>
+
+<p>Programmers have different preferences and styles of programming. Depending on programmers&#8217; values and experiences, programmers can aptly give reasons why they think people should choose some programming language. Although programmers may like different languages for different reasons, their opinions are usually correct in identifying why certain programming languages are great for certain uses.</p>
+
+<p>I like to program in Ruby because Ruby is <em>succinct</em> and highly <em>practical</em> language that is <em>widely used</em> by many programmers in the industry.</p>
+
+<p>Ruby codes are succint and highly readable. This is an opinion that&#8217;s commonly shared among non-Ruby programmers as well. Even with minimal programming experience, you&#8217;ll be able to read and understand elementary Ruby codes. In many ways, this characteristic carries over to more complex Ruby codes too. There are some unusual syntaxes that are unique to Ruby, but once you understand what they do, you&#8217;ll be able to read and understand complex Ruby code like you&#8217;d do with simple Ruby code. Like reading code, writing code feels more straight forward and even enjoyable.</p>
+
+<p>Ruby has powerful programming language features that lets you write functional programs with less code. Just ask thousands of developers using <a href='http://rubyonrails.org/'>Ruby on Rails</a> to build applications serving millions of users everyday. Writing code in Ruby will improve your productivity.</p>
+
+<p>Ruby is a popular language. Its popularity exploded since Ruby on Rails was introduced in 2004. Beginners will have an easier time getting help thanks to large <a href='http://stackoverflow.com/questions/tagged/ruby'>Ruby community on StackOverflow</a>. Your coding skills in Ruby will also be useful in finding a career as a developer as well. There are plenty of companies looking for Ruby developers.</p>
+
+<h3 id='how_about_c_and_java'>How About C++ and Java?</h3>
+
+<p>C++ and Java are popular programming languages of choice for data structures and algorithms courses in university. C++ and Java are fast programming language. By &#8220;fast&#8221; I mean, if you had a program written in C++ or Java that does same things as a program written in Ruby, the program written in C++ or Java will have more executions per given time.</p>
+
+<p>C++ and Java are also more popular than Ruby. There are more C++ or Java programmers than Ruby programmers. There are more companies looking for C++ or Java programmers as well.</p>
+
+<p>On the other hand,</p>
+
+<p>It</p>
+
+<h3 id='codes_vs_pseudocodes'>Codes vs. Pseudocodes</h3>
+
+<h3 id='setting_up_ruby_development_environment'>Setting Up Ruby Development Environment</h3>
+
+<h4 id='mac_os_x'>Mac OS X</h4>
+
+<p>Ruby versions 1.8 and 1.9 are currently in wide use. We will use Ruby version 1.9.3 specifically and we will use <a href='https://rvm.io/'>RVM</a> to install Ruby. Follow the installation guide provided in the <a href='https://rvm.io/rvm/install/'>RVM website</a> to install Ruby.</p>
+
+<h4 id='ubuntu'>Ubuntu</h4>
+
+<h4 id='windows'>Windows</h4>
+<hr />
+<h2 id='2_introduction_to_ruby'>2. Introduction to Ruby</h2>
+
+<p>This is a very brief introduction to Ruby programming language. While this section is sufficient for following tutorials in the book, it is in no way a complete guide to Ruby. Keep in mind throughout this section that the introduction obmits a large chunk of Ruby. Also some new Ruby syntaxes will be introduced in future sections which are not covered in this section.</p>
+
+<h3 id='hello_world'>Hello World!</h3>
+
+<h4 id='interactive_ruby_shell_irb'>Interactive Ruby Shell (IRB)</h4>
+
+<p>Interactive Ruby Shell, more commonly known as IRB is a great tool to run concise Ruby scripts. In order to fire up IRB, open your terminal and type <code>irb</code>. You should see <code>1.9.3p194 :001 &gt;</code> in your terminal. In IRB, type Code 2.1 and press enter.</p>
+
+<h5 id='code_21'>Code 2.1</h5>
+
+<pre><code>&quot;Hello World!&quot;</code></pre>
+
+<p>This should return <code> =&gt; &quot;Hello World!&quot; </code>. Boom! There&#8217;s your first Ruby program.</p>
+
+<h3 id='variables'>Variables</h3>
+
+<h4 id='local_variables'>Local Variables</h4>
+
+<p>These are all valid local variables.</p>
+
+<h5 id='code_21'>Code 2.1</h5>
+
+<pre><code>foobar
+foobar2
+this_is_a_variable
+_this_is_fine_too</code></pre>
+
+<p>Local variables begin with a lowercase letter (a-z) or underscore(_). It can end with either lowercase letter or number (0-9).</p>
+
+<p>Local variables are accessible within the block it was initialized in.</p>
+
+<h4 id='instance_variables'>Instance Variables</h4>
+
+<p>Instance variables belongs to the class itself. It begins with <code>@</code></p>
+
+<h5 id='code_22'>Code 2.2</h5>
+
+<pre><code>@foobar
+@foo_bar</code></pre>
+
+<h3 id='builtin_data_types'>Built-in Data Types</h3>
+
+<p>Ruby has several built-in ways to represent data. Using these basic building blocks to represent data, you can build more complex data structures such as lists and trees later.</p>
+
+<h4 id='string'>String</h4>
+
+<p>String objects represent text characters by storing sequences of bytes. String objects are instantiated simply using single quotes, <code>&#39;</code> or double quotes, <code>&quot;</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>&quot;string value&quot;
+&#39;this is also a string value&#39;</code></pre>
+
+<p>You can also insert a variable into a string, and Ruby compiler will attempt to convert the variable&#8217;s type to string type. This is done by inserting variable in <code>#{variable_name}</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>x = &quot;Kurt&quot;
+&quot;#{x} Cobain played for Nirvana.&quot; # =&gt; &quot;Kurt Cobain played for Nirvana.&quot;</code></pre>
+
+<p>You can also embed ruby code within <code>#{}</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>&quot;3*3 is equal to #{3*3}.&quot; # =&gt; &quot;3*3 is equal to 9.&quot;</code></pre>
+
+<h4 id='integer'>Integer</h4>
+
+<p>Ruby represents integer simply by writing a sequence of numbers.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>12345     # =&gt; 12345
+1         # =&gt; 1
+1_000_000 # =&gt; 1000000</code></pre>
+
+<h4 id='float'>Float</h4>
+
+<p>There are several ways to write rational numbers in Ruby.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>1.0         # =&gt; 1.0
+3.14        # =&gt; 3.14
+1e12        # =&gt; 1000000000000.0 </code></pre>
+
+<h4 id='array'>Array</h4>
+
+<p>Arrays store a list of values with unique positions, <em>index</em>. Arrays are instantiated using square brackets, <code>[]</code> and values are separated by commas, <code>,</code>. Accessing values in arrays are done by indicating the index of the value you&#8217;d like to access.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>[1]                            # =&gt; [1]
+[1, 2, 3]                      # =&gt; [1, 2, 3]
+[&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]        # =&gt; [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]
+g = [5, 6, 7]                  # =&gt; [5, 6, 7]
+g[0]                           # =&gt; 5
+g[2]                           # =&gt; 7
+g[3]                           # =&gt; nil</code></pre>
+
+<p>Nested arrays are arrays that have other arrays as values.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>n = [[3, 4], [5, 6, 7], [8, 9, 10, 11]]
+n[0]                                         # =&gt; [3, 4]
+n[2]                                         # =&gt; [8, 9, 10, 11]
+n[2][3]                                      # =&gt; 11</code></pre>
+
+<p>Assigning new values into an array is done by indicating the index of the new value and assigning the new value into the index of the array.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>inception = [&quot;level 1&quot;, &quot;level 2&quot;, &quot;level 3&quot;]
+inception[3] = &quot;limbo&quot;
+inception     # =&gt; [&quot;level 1&quot;, &quot;level 2&quot;, &quot;level 3&quot;, &quot;limbo&quot;]</code></pre>
+
+<p>You can overwrite a value in array as well.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>g = [5, 6, 7]
+g[0] = &quot;zero&quot;
+g                # =&gt; [&quot;zero&quot;, 6, 7]</code></pre>
+
+<p>You can concatenate two arrays with <code>+</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>[3, 4] + [5, 6, 7]     # =&gt; [3, 4, 5, 6, 7]</code></pre>
+
+<h4 id='hash'>Hash</h4>
+
+<p>Hash is like a dictionary. A dictionary has a respective meaning of a word for every word entry. Similarly, a hash has a <em>value</em> for every <em>key</em>. Instantiating a hash is doen with squiggly brackets, <code>{}</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>h = {}
+h[&quot;Vancouver&quot;] = &quot;British Columbia&quot;
+h[&quot;Toronto&quot;] = &quot;Ontario&quot;
+h[&quot;Montreal&quot;] = &quot;Quebec&quot;
+h                # =&gt; {&quot;Vancouver&quot;=&gt;&quot;British Columbia&quot;, &quot;Toronto&quot;=&gt;&quot;Ontario&quot;, &quot;Montreal&quot;=&gt;&quot;Quebec&quot;}
+h[&quot;Montreal&quot;]    # =&gt; &quot;Quebec&quot;</code></pre>
+
+<p>You can assign an array as a value for a key.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>starcraft = {}
+starcraft[&quot;Terran&quot;] = [&quot;Marine&quot;, &quot;Medic&quot;, &quot;SCV&quot;]
+starcraft[&quot;Zerg&quot;] = [&quot;Zergling&quot;, &quot;Hydrarisk&quot;, &quot;Drone&quot;]
+starcraft[&quot;Protoss&quot;] = [&quot;Zealot&quot;, &quot;Dragoon&quot;, &quot;Probe&quot;]
+starcraft    # =&gt;  =&gt; {&quot;Terran&quot;=&gt;[&quot;Marine&quot;, &quot;Medic&quot;, &quot;SCV&quot;], &quot;Zerg&quot;=&gt;[&quot;Zergling&quot;, &quot;Hydrarisk&quot;, &quot;Drone&quot;], &quot;Protoss&quot;=&gt;[&quot;Zealot&quot;, &quot;Dragoon&quot;, &quot;Probe&quot;]} </code></pre>
+
+<p>You can assign multiple key-value pairs at the same time.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>stars = {&quot;Pablo Honey&quot; =&gt; 4, &quot;The Bends&quot; =&gt; 4.5, &quot;OK Computer&quot; =&gt; 5}</code></pre>
+
+<p>Since Ruby 1.9, you can also use <code>:</code> to replace <code>=&gt;</code>.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>more_stars = {&quot;Kid A&quot;: 5, &quot;Amnesiac&quot;: 4, &quot;Hail to the Cheif&quot;: 4, &quot;In Rainbows&quot;: 3}</code></pre>
+
+<h4 id='symbol'>Symbol</h4>
+
+<p>Symbols are like string substitutes with some different properties. They often used in Ruby to avoid computationally expensive string comparisons. Symbols start with <code>:</code> followed by some symbol name</p>
+
+<p>If you have a code where you are using strings as identifiers for something, consider using symbols instead. For example, if you have two strings, <code>&quot;male&quot;</code> and <code>&quot;female&quot;</code> as identifier for a person&#8217;s gender, use <code>:male</code> and <code>:female</code> to identify a person&#8217;s gender instead.</p>
+
+<p>You can covert from string to symbol and symbol to string easily using <code>to_sym</code> method and <code>to_s</code> method.</p>
+
+<h5 id='code'>Code</h5>
+
+<dl>
+<dt>&#8220;string_to_symbol&#8221;.to_sym # =&gt; :string_to_symbol</dt>
+
+<dt>&#8220;string to symbol&#8221;.to_sym # =&gt; :&#8221;string to symbol&#8221;</dt>
+
+<dd>symbol_to_string.to_s # =&gt; &#8220;symbol_to_string&#8221;</dd>
+</dl>
+
+<h4 id='boolean'>Boolean</h4>
+
+<p>There are only two Boolean values, <code>true</code> and <code>false</code>. <code>nil</code> in Ruby indicates an absence of value. In other programming languages such as JavaScript, <code>null</code> is the comparable keyword to <code>nil</code> in Ruby.</p>
+
+<h4 id='range'>Range</h4>
+
+<p>Range object has a start value, an ending value and a list of values in between. Range starts with a start value, followed by <code>..</code> or <code>...</code>, and an ending value.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>(1..5)  # includes the ending value, 5
+(1...5) # does not include the ending value, 5  </code></pre>
+
+<p>You can use range object on alphabets as well, which makes printing alphabets super easy.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>(&quot;a&quot;..&quot;z&quot;).each {|x| print x }    # prints abcdefghijklmnopqrstuvwxyz</code></pre>
+
+<p>You can even do that with alphabets of other languages. Here is a list of Korean vowel alphabets.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>(&quot;ㅏ&quot;..&quot;ㅣ&quot;).each {|x| print x}  # prints ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ</code></pre>
+
+<h3 id='methods'>Methods</h3>
+
+<p>Methods usually define particular behaviours of a class in Ruby. But unlike some other languages such as Java and C#, Ruby method doesn&#8217;t have to be written for a class. A Ruby method may not belong to any class at all. Return types for a method is not explicitly defined either.</p>
+
+<h5 id='code_23'>Code 2.3</h5>
+
+<pre><code>def square(number)
+  number*number
+end</code></pre>
+
+<p>Code 2.3 shows a method named <code>square</code> and it takes an argument called <code>number</code>. The <code>square</code> method multiplies <code>number</code> value with another <code>number</code> value and returns the multications as the result.</p>
+
+<p>In order to call a method, invoke the name of the method with appropriate argument.</p>
+
+<h5 id='code_24'>Code 2.4</h5>
+
+<pre><code>square(4)</code></pre>
+
+<p>Notice that Ruby method does not require explicit <code>return</code> keyword. If you are not terminating the method prematurely, use of <code>return</code> is discouraged. Code 2.4 shows a method that uses <code>return</code> keyword.</p>
+
+<h5 id='code_25'>Code 2.5</h5>
+
+<pre><code>def largest_prime_number_below(number)
+  number.downto(2).each do |count_down|
+      if is_prime?(count_down)
+        return count_down
+      end
+  end
+  false
+end
+
+def is_prime?(count_down)
+  2.upto(count_down/2).each do |count_up|
+      if count_down%count_up == 0
+        return false
+      end
+  end
+  true
+end</code></pre>
+
+<p><code>largest_prime_number_below</code> method takes an argument called <code>number</code>, and browse down each number from <code>number</code> to 2, which is the smallest prime number. While we go down through each number, <code>count_down</code>, we divide the number up with numbers between 2 to half of <code>count_down</code> and check for its remainder. If the remainder is 0, we terminate <code>is_prime?</code> method by <em>returning</em> false. Eitherwise, the block runs up to the half of <code>count_down</code> and implicitly returns true. When <code>is_prime?</code> for a <code>count_down</code> number is true, <code>largest_prime_number_below</code> returns the <code>count_down</code> number and terminates the method.</p>
+
+<p>Method names are written in lower case letters. Method names may contain numbers and underscore. Method names may also end with an exclamation mark <code>!</code> or a question mark <code>?</code>.</p>
+
+<p>By convention, a method name ending with <code>!</code> denotes that it is a <em>mutator</em>. It is a method that changes the argument the method takes. It should be used with caution. A method name ending with <code>?</code> denotes that the method returns boolean value of true or false.</p>
+
+<h4 id='iterators'>Iterators</h4>
+
+<p>Ruby programmers don&#8217;t use <code>while</code> loops that often. <code>for</code> loops are used even less often. This is because Ruby has a wide array of <em>iterator</em> methods, you can use on arrays and hash tables.</p>
+
+<p>Here are some common methods you can apply on collections to get you started.</p>
+
+<ol>
+<li>
+<p><code>each</code> - executes block and returns the list of objects without mutating</p>
+
+<p>prints 246810 and returns <span>1, 2, 3, 4, 5</span></p>
+
+<p><code>[1, 2, 3, 4, 5].each {|x| print x*2}</code></p>
+
+<p>prints artists&#8217; name and their nationality and returns the hash itself</p>
+
+<p><code>{&quot;Justin Bieber&quot; =&gt; &quot;Canadian&quot;, &quot;Psy&quot; =&gt; &quot;Korean&quot;, &quot;Nicki Minaj&quot; =&gt; &quot;American&quot;}.each {|key, value| puts &quot;#{key}: #{value}&quot; }</code></p>
+</li>
+
+<li>
+<p><code>map</code> - executes block and returns the list of mutated objects</p>
+
+<p>returns <span>2, 4, 6, 8, 10</span></p>
+
+<p><code>[1, 2, 3, 4, 5].map {|x| x*2}</code></p>
+</li>
+
+<li>
+<p><code>select</code> - returns a list of objects when condition is true</p>
+
+<p>returns <span>2</span></p>
+
+<p><code>[1, 2, 3, 4, 5].select {|x| x==2}</code></p>
+</li>
+
+<li>
+<p><code>reject</code> - returns a list of objects when condition is false</p>
+
+<p>returns <span>1, 3, 4, 5</span></p>
+
+<p><code>[1, 2, 3, 4, 5].reject {|x| x==2}</code></p>
+</li>
+
+<li>
+<p><code>uniq</code> - returns a list without duplicates</p>
+
+<p>returns <span>1, 2, 3, 4</span></p>
+
+<p><code>[1, 2, 3, 3, 3, 4].uniq</code></p>
+</li>
+
+<li>
+<p><code>reverse</code> - reverse the list</p>
+
+<p>returns <span>4, 3, 2, 1</span></p>
+
+<p><code>[1, 2, 3, 4].reverse</code></p>
+</li>
+
+<li>
+<p><code>compact</code> - return all non-nil objects</p>
+
+<p>returns <span>1, 2, 3, 4</span></p>
+
+<p><code>[1, 2, 3, nil, nil, 4].compact</code></p>
+</li>
+
+<li>
+<p><code>flatten</code> - flatten inner arrays</p>
+
+<p>returns <span>3, 2, 4, 4</span></p>
+
+<p><code>[[3,2], [4,4]].flatten</code></p>
+</li>
+
+<li>
+<p><code>partition</code> - Create two collections. First collection for true, second for false.</p>
+
+<p>returns <span><span>4, 5</span>, <span>1, 6</span></span></p>
+
+<p><code>[1, 4, 5, 6].partition {|x| x==4 || x==5}</code></p>
+</li>
+
+<li>
+<p><code>sort</code> without argument - Sorts the list</p>
+
+<p>returns <span>1, 3, 11, 23, 31, 34</span></p>
+
+<p><code>[31, 34, 11, 23, 1, 3].sort</code></p>
+</li>
+</ol>
+
+<h3 id='classes_and_objects'>Classes and Objects</h3>
+
+<p>Ruby is an object orient language. Every value in Ruby is an instance of some class.</p>
+
+<h4 id='attributes'>Attributes</h4>
+
+<h4 id='class_methods_and_instance_methods'>Class Methods and Instance Methods</h4>
+<hr />
+<h2 id='3_linked_lists'>3. Linked Lists</h2>
+
+<p>A linked list is a linear data structure that is made up of objects connected to one another by pointers. Another linear data structure we looked earlier was a array.</p>
+
+<h3 id='differences_between_array_and_linked_lists'>Differences Between Array and Linked Lists</h3>
+
+<h3 id='implementing_singly_linked_list'>Implementing Singly Linked List</h3>
+
+<h4 id='linked_list_class_and_node_class'>Linked List Class and Node Class</h4>
+
+<p><code>SinglyLinkedList</code> class and <code>Node</code> class is used to create instances of the lists and nodes. <code>attr_accessor</code> method creates setter and getter method for attributes of <code>SinglyLinkedList</code> class and <code>Node</code> class. <code>SinglyLinkedList</code> class has three attributes, <em>head</em>, <em>tail</em>, and <em>count</em>. <code>Node</code> class has two attributes, <em>data</em>, and <em>next</em>.</p>
+
+<h5 id='singlylinkedlist_class_attributes'>SinglyLinkedList Class Attributes</h5>
+
+<ul>
+<li>head: a node that points to the starting node of the linked list</li>
+
+<li>tail: a node that points to the ending node of the linked list</li>
+
+<li>count: number of nodes in the linked list</li>
+</ul>
+
+<h5 id='node_class_attributes'>Node Class Attributes</h5>
+
+<ul>
+<li>data: contains the value of the node</li>
+
+<li>next: pointer that is used to point to the location of the next node</li>
+</ul>
+
+<p><code>initialize</code> method for <code>SinglyLinkedList</code> initializes head, tail and count attributes. Head node and tail node for the linked list are created. Head node points to tail node by setting the next pointer to the tail node. Tail node points to head node by setting the next pointer to the head node, since there are no other nodes in the list.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  attr_accessor :head, :tail, :count
+
+  def initialize
+    @head = Node.new(nil)
+    @tail = Node.new(nil)
+
+    @head.next = @tail
+    @tail.next = @head
+    @count = 1
+  end
+end
+
+class Node
+  attr_accessor :data, :next
+
+  def initialize(data)
+    @data = data
+  end
+end</code></pre>
+
+<h4 id='instantiation_of_the_linked_list_and_the_node'>Instantiation of the Linked List and the Node</h4>
+
+<p>We have <code>initialize</code> methods ready. We can instiate the list and the node using <code>new</code> method.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  attr_accessor :head, :tail, :count
+  
+  def initialize
+    @head = Node.new(nil)
+    @tail = Node.new(nil)
+    
+    @head.next = @tail
+    @tail.next = @head
+    @count = 1
+  end
+end
+
+class Node
+  attr_accessor :data, :next
+  
+  def initialize(data)
+    @data = data
+  end
+end
+
+list = SinglyLinkedList.new
+node = Node.new(1)</code></pre>
+
+<p>If you run the code, nothing interesting appears on the console. Well, let&#8217;s change that.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>list = SinglyLinkedList.new
+node = Node.new(1)
+
+puts list    # =&gt; #&lt;SinglyLinkedList:0x007fa96304cd38&gt;
+puts node    # =&gt; #&lt;Node:0x007fa96304cab8&gt;
+puts node.data    # =&gt; 1</code></pre>
+
+<h4 id='inserting_nodes_into_the_linked_list'>Inserting Nodes into the Linked List</h4>
+
+<p>We will create a method that will instantiate a node and insert it into a linked list at the beginning and at the end.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  ...
+
+  def insert_front(data)
+    @node = Node.new(data)
+    @node.next = @head.next
+    @head.next = @node
+    if @count &lt; 1
+      @tail.next = @node
+    end
+    @count += 1
+  end
+
+  def insert_back(data)
+    @node = Node.new(data)
+    @node.next = @tail
+    @tail.next.next = @node
+    @tail.next = @node
+    @count += 1
+  end
+end</code></pre>
+
+<h5 id='_method'><code>insert_front</code> method</h5>
+
+<p><code>insert_front</code> method takes <code>data</code> as an argument and creates a node with that <code>data</code>, which is inserted at the beginning of the linked list.</p>
+
+<ol>
+<li>Instantiate a new node with data</li>
+
+<li>The new node&#8217;s next pointer points to the node where head node points to.</li>
+
+<li>Head node&#8217;s next pointer is updated to point to the newly created node.</li>
+
+<li>If there is no node in the linked list, tail node&#8217;s next pointer should set to the new node.</li>
+
+<li>Increment count by 1, since a new node has been created.</li>
+</ol>
+
+<h5 id='_method'><code>insert_back</code> method</h5>
+
+<p><code>insert_back</code> method takes <code>data</code> as an argument and creates a node with that <code>data</code> just like <code>insert_front</code> method. However, unlike <code>insert_front</code>, <code>insert_back</code> method pushes the node at the back of the linked list.</p>
+
+<ol>
+<li>Instantiate a new node with data</li>
+
+<li>The new node&#8217;s next pointer points to the tail node.</li>
+
+<li>The previous ending node&#8217;s (the node that the tail node currently points to) next pointer now is set to the new node. The new node is now the ending node.</li>
+
+<li>The tail node now points to the new node.</li>
+
+<li>Increment count by 1.</li>
+</ol>
+
+<h5 id='adding_some_nodes_in_the_list'>Adding Some Nodes in the List</h5>
+
+<p>Previously we created a linked list named <code>list</code>. We can add nodes into this <code>list</code> by applying <code>insert_front</code> and <code>insert_back</code> methods.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>list.insert_front(1)
+list.insert_back(2)
+list.insert_front(3)
+list.insert_back(4)</code></pre>
+
+<h4 id='accessing_attributes_of_the_linked_list'>Accessing Attributes of the Linked List</h4>
+
+<p>Previously we discussed that the linked list class has <code>head</code>, <code>tail</code> and <code>count</code> attributes. You can access these attributes by using accessor methods created with <code>attr_accessor</code> method.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>list.count
+list.head
+list.tail</code></pre>
+
+<p>Let&#8217;s print what the accessors return.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>puts list.count
+puts list.tail
+puts list.head
+
+# console output
+4
+#&lt;Node:0x007fef7a083d30&gt;
+#&lt;Node:0x007fef7a083d58&gt;</code></pre>
+
+<p>We have 4 nodes in the linked list, and returns head and tail nodes of the linked list. And finally, you can print the values of first node and the last node.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>puts list.head.next.data
+puts list.tail.next.data
+
+# console output
+3
+4</code></pre>
+
+<h4 id='linked_list_to_array'>Linked List to Array</h4>
+
+<p>Arrays are a type of a list. Linked lists are also a type of a list. It only makes sense that we write a method that converts a listed list into an array.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  ...
+
+  def to_array
+    array = []
+    cursor = @head.next
+    while cursor != @tail
+      array &lt;&lt; cursor.data
+      cursor = cursor.next
+    end
+    array
+  end
+end</code></pre>
+
+<h5 id='_method'><code>to_array</code> method</h5>
+
+<ol>
+<li>Create an array.</li>
+
+<li><code>cursor</code> is a pointer. It start from the beginning node.</li>
+
+<li>The while loop runs until the <code>cursor</code> pointer hits the tail node.</li>
+
+<li>Push the data of the current node that <code>cursor</code> points to.</li>
+
+<li>By the end of the while loop, the array will have all the nodes&#8217; data.</li>
+
+<li>Return the array.</li>
+</ol>
+
+<h4 id='printing_linked_list'>Printing Linked List</h4>
+
+<p>We&#8217;ve created a linked list and we can add nodes into it, but we don&#8217;t have a good way to visualize the result yet. Let us create a method that prints the list.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  ...
+  
+  def print_forward
+    puts self.to_array.to_s
+  end
+  
+  def print_reverse
+    puts self.to_array.reverse.to_s
+  end
+end
+
+...
+
+list.print_forward
+list.print_reverse   
+
+# console output
+[3, 1, 2, 4]
+[4, 2, 1, 3]</code></pre>
+
+<h4 id='does_this_node_exist_in_the_linked_list'>Does This Node Exist in the Linked List?</h4>
+
+<p>Say you want to find out if a node exists in the linked list or not. <code>exist?</code> is the just the method you are looking for.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList      
+  ...
+  
+  def exist?(data)
+    cursor = @head.next
+    while cursor != @tail
+      if cursor.data == data
+        return true
+      end
+      cursor = cursor.next
+    end
+    false
+  end
+end
+
+puts list.exist?(4)
+puts list.exist?(5)
+
+# console output
+true
+false</code></pre>
+
+<h5 id='_method'><code>exist?</code> method</h5>
+
+<ol>
+<li><code>cursor</code> is a pointer. It start from the beginning node.</li>
+
+<li>The while loop runs until the <code>cursor</code> pointer hits the tail node.</li>
+
+<li>The while loop will end before it reaches the tail node, if the node we are looking for is found. If that is the case, we return true.</li>
+
+<li>If the <code>cursor</code> pointer reaches the end, the node doesn&#8217;t exist in the linked list. So we return false.</li>
+</ol>
+
+<h4 id='deleting_node'>Deleting Node</h4>
+
+<p>We should be able to delete nodes in a linked list just as we can add nodes in linked list.</p>
+
+<h5 id='code'>Code</h5>
+
+<pre><code>class SinglyLinkedList
+  ...
+  
+  def delete!(data)
+    first = @head
+    second = @head.next
+    while second != @tail
+      if second.data == data
+        @count -= 1
+        first.next = second.next
+        return true
+      end
+      first = first.next
+      second = second.next
+    end
+    false
+  end
+end
+
+puts list.delete!(5)
+puts list.delete!(4)
+list.print_forward
+
+# console output    
+false
+true
+[3, 1, 2]</code></pre>
+
+<h5 id='_method'><code>delete!</code> method</h5>
+
+<ol>
+<li><code>data</code> is taken as an argument for the method</li>
+
+<li>We need two pointers. <code>first</code> pointer starts at <code>head</code> node. <code>second</code> pointer starts at the beginning node.</li>
+
+<li>The while loop runs until the <code>second</code> pointer hits the tail node.</li>
+
+<li>As we interate through all the nodes in the linked list, we compare the node data that <code>second</code> pointer points to with the <code>data</code> argument. If the node data of <code>second</code> pointer points to is equal to the <code>data</code> argument, then we&#8217;ve found the node to delete.</li>
+
+<li>Decrement <code>count</code> attribute of the linked list.</li>
+
+<li>The node that <code>first</code> pointer points to should have <code>next</code> set to the node that comes after where the <code>second</code> node currently points to.</li>
+
+<li>Then return true and terminate the method.</li>
+
+<li>If the node is not found in the linked list, return false.</li>
+</ol>
+
+<h2 id='4_stacks'>4. Stacks</h2>
+
+<h2 id='5_queues'>5. Queues</h2>
+
+<h2 id='6_hash_tables'>6. Hash Tables</h2>
+
+<h2 id='7_trees'>7. Trees</h2>
+
+<h2 id='8_heaps'>8. Heaps</h2>
+
+<h2 id='9_sorts'>9. Sorts</h2>
+
+<h2 id='10_searches'>10. Searches</h2>
+
+<h2 id='11_minimum_spanning_tree'>11. Minimum Spanning Tree</h2>
+
+<h2 id='12_dijkstras_algorithm__bellmanford_algorithm'>12. Dijkstra&#8217;s Algorithm &amp; Bellman-Ford Algorithm</h2>
+<hr /><h2 id='copyright'>Copyright</h2><a href='http://creativecommons.org/licenses/by-nc-sa/3.0/' rel='license'><img alt='Creative Commons License' src='http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png' style='border-width:0' /></a><p>Algorithms in Ruby: An Introduction to Data Structures and Algorithms with Ruby by Jason Kim is licensed under a <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/' rel='license'>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+	</div>
+</body>
+</html>
