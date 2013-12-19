@@ -35,7 +35,8 @@
 }
 
 .container #content img {
-  width: 100%;
+  width: 50%;
+  height: 30%;
 }
 
 #ruby-logo {
