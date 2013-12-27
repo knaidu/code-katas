@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>Karthik Naidu DJ</title>
+  
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+  <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+</head>
+<body>
+	<div class="container">
+  	<h1 id="book-title">Problem Sets in Ruby </h1>
+<h2 id="book-subtitle">Collection of algorithms in Ruby</h2>
+<h5 id="book-author">by Karthik Naidu</h5>
+<hr>
+
+<div id="content">
+  <h2 id="problem">Problem</h2>
+
+<p>Given an array of integers, implement binary search. Assume the input array is sorted.</p>
+
+<h2 id="example">Example</h2>
+
+<p>Input: Array: [1,2,3,4,5], Key: 5</p>
+
+<p>Output: 4 (position of element 5 in the array)</p>
+
+<h2 id="algorithm">Algorithm</h2>
+
+<ol>
+<li>Compare with the middle element of the array, if it matches return middle position as the result.</li>
+
+<li>If the element is smaller than the middle element recuse on the left side of the array</li>
+
+<li>If the element is larger than the middle element recurse on the right side of the array.</li>
+</ol>
+
+<h2 id="code">Code</h2>
+<div class='highlight'><pre><code class='ruby'><span class='k'>def</span> <span class='nf'>binary_search</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+  <span class='k'>raise</span> <span class='no'>ArgumentError</span><span class='p'>,</span> <span class='s1'>&#39;Empty array provided&#39;</span> <span class='k'>if</span> <span class='n'>arr</span><span class='o'>.</span><span class='n'>empty?</span>
+  <span class='k'>return</span> <span class='n'>binary_search_recursive</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='n'>arr</span><span class='o'>.</span><span class='n'>size</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+<span class='k'>end</span>
+
+<span class='k'>def</span> <span class='nf'>binary_search_recursive</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='n'>low</span><span class='p'>,</span> <span class='n'>high</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+  <span class='k'>return</span> <span class='o'>-</span><span class='mi'>1</span> <span class='k'>if</span> <span class='n'>low</span> <span class='o'>&gt;=</span> <span class='n'>high</span>
+
+  <span class='n'>mid</span> <span class='o'>=</span> <span class='p'>(</span><span class='n'>low</span><span class='o'>+</span><span class='n'>high</span><span class='p'>)</span><span class='o'>/</span><span class='mi'>2</span>
+  <span class='k'>if</span> <span class='n'>key</span> <span class='o'>==</span> <span class='n'>arr</span><span class='o'>[</span><span class='n'>mid</span><span class='o'>]</span>
+    <span class='k'>return</span> <span class='n'>mid</span>
+  <span class='k'>elsif</span> <span class='n'>key</span> <span class='o'>&lt;</span> <span class='n'>arr</span><span class='o'>[</span><span class='n'>mid</span><span class='o'>]</span>
+    <span class='k'>return</span> <span class='n'>binary_search_recursive</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='n'>low</span><span class='p'>,</span> <span class='n'>mid</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+  <span class='k'>else</span>
+    <span class='k'>return</span> <span class='n'>binary_search_recursive</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='n'>mid</span><span class='o'>+</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>high</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+  <span class='k'>end</span>
+<span class='k'>end</span>
+
+<span class='k'>def</span> <span class='nf'>binary_search_iterative</span><span class='p'>(</span><span class='n'>arr</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span>
+  <span class='n'>low</span> <span class='o'>=</span> <span class='mi'>0</span>
+  <span class='n'>high</span> <span class='o'>=</span> <span class='n'>arr</span><span class='o'>.</span><span class='n'>size</span>
+
+  <span class='k'>while</span> <span class='n'>low</span> <span class='o'>&lt;</span> <span class='n'>high</span> <span class='k'>do</span>
+    <span class='n'>mid</span> <span class='o'>=</span> <span class='p'>(</span><span class='n'>low</span> <span class='o'>+</span> <span class='n'>high</span><span class='p'>)</span><span class='o'>/</span><span class='mi'>2</span>
+    <span class='k'>if</span> <span class='n'>key</span> <span class='o'>==</span> <span class='n'>arr</span><span class='o'>[</span><span class='n'>mid</span><span class='o'>]</span>
+      <span class='k'>return</span> <span class='n'>mid</span>
+    <span class='k'>elsif</span> <span class='n'>key</span> <span class='o'>&lt;</span> <span class='n'>arr</span><span class='o'>[</span><span class='n'>mid</span><span class='o'>]</span>
+      <span class='n'>high</span> <span class='o'>=</span> <span class='n'>mid</span> <span class='o'>-</span> <span class='mi'>1</span>
+    <span class='k'>else</span>
+      <span class='n'>low</span> <span class='o'>=</span> <span class='n'>mid</span> <span class='o'>+</span> <span class='mi'>1</span>
+    <span class='k'>end</span>
+  <span class='k'>end</span>
+
+  <span class='k'>return</span> <span class='o'>-</span><span class='mi'>1</span><span class='p'>;</span>
+<span class='k'>end</span>
+</code></pre></div>
+<h2 id="tests">Tests</h2>
+<div class='highlight'><pre><code class='ruby'><span class='nb'>require</span> <span class='s1'>&#39;./binary_search&#39;</span>
+
+<span class='n'>describe</span> <span class='s1'>&#39;binary_search&#39;</span> <span class='k'>do</span>
+  <span class='n'>let</span><span class='p'>(</span><span class='ss'>:key</span><span class='p'>)</span> <span class='p'>{</span> <span class='mi'>5</span> <span class='p'>}</span>
+  <span class='n'>context</span> <span class='s1'>&#39;an array with 0 elements&#39;</span> <span class='k'>do</span>
+    <span class='n'>it</span> <span class='s1'>&#39;should raise an error&#39;</span> <span class='k'>do</span>
+      <span class='n'>expect</span> <span class='p'>{</span><span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)}</span><span class='o'>.</span><span class='n'>to</span> <span class='n'>raise_error</span><span class='p'>(</span><span class='no'>ArgumentError</span><span class='p'>)</span>
+    <span class='k'>end</span>
+  <span class='k'>end</span>
+
+  <span class='n'>context</span> <span class='s1'>&#39;an array with 1 element&#39;</span> <span class='k'>do</span>
+    <span class='n'>subject</span> <span class='p'>{</span> <span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[</span><span class='n'>key</span><span class='o'>]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span> <span class='p'>}</span>
+    <span class='n'>it</span> <span class='p'>{</span> <span class='n'>should</span> <span class='n'>equal</span> <span class='mi'>0</span><span class='p'>}</span>
+  <span class='k'>end</span>
+
+  <span class='n'>context</span> <span class='s1'>&#39;an array with more than 1 element&#39;</span> <span class='k'>do</span>
+    <span class='n'>context</span> <span class='s1'>&#39;with search key on the right half of the array&#39;</span> <span class='k'>do</span>
+      <span class='n'>subject</span> <span class='p'>{</span> <span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='n'>key</span><span class='o'>]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span> <span class='p'>}</span>
+      <span class='n'>it</span> <span class='p'>{</span> <span class='n'>should</span> <span class='n'>equal</span> <span class='mi'>4</span> <span class='p'>}</span>
+    <span class='k'>end</span>
+
+    <span class='n'>context</span> <span class='s1'>&#39;with search key on the left half of the array&#39;</span> <span class='k'>do</span>
+      <span class='n'>subject</span> <span class='p'>{</span> <span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[</span><span class='n'>key</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>9</span><span class='o'>]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span> <span class='p'>}</span>
+      <span class='n'>it</span> <span class='p'>{</span><span class='n'>should</span> <span class='n'>equal</span> <span class='mi'>0</span><span class='p'>}</span>
+    <span class='k'>end</span>
+
+    <span class='n'>context</span> <span class='s1'>&#39;with search key in the middle of the array&#39;</span> <span class='k'>do</span>
+      <span class='n'>subject</span> <span class='p'>{</span> <span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='n'>key</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>9</span><span class='o'>]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span> <span class='p'>}</span>
+      <span class='n'>it</span> <span class='p'>{</span> <span class='n'>should</span> <span class='n'>equal</span> <span class='mi'>4</span> <span class='p'>}</span>
+    <span class='k'>end</span>
+
+    <span class='n'>context</span> <span class='s1'>&#39;when search key does not exist in the array&#39;</span> <span class='k'>do</span>
+      <span class='n'>subject</span> <span class='p'>{</span> <span class='n'>binary_search</span><span class='p'>(</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span> <span class='n'>key</span><span class='p'>)</span> <span class='p'>}</span>
+      <span class='n'>it</span> <span class='p'>{</span> <span class='n'>should</span> <span class='n'>equal</span> <span class='o'>-</span><span class='mi'>1</span> <span class='p'>}</span>
+    <span class='k'>end</span>
+  <span class='k'>end</span>
+<span class='k'>end</span>
+</code></pre></div>
+<h2 id="time_complexity">Time complexity</h2>
+
+<p>O(log n)</p>
+
+<p>We are eliminating half the array at every iteration, hence log n.</p>
+</div>
+
+<h2 id="copyright">Copyright</h2>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+
+<p>Problem Sets in Ruby: A collection of algorithms in Ruby by Karthik Naidu is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+	</div>
+</body>
+</html>

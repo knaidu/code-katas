@@ -75,3 +75,6 @@ code{
 p code {
   background-color: #dcb;
 }
+a:link {
+    text-decoration: none
+}
